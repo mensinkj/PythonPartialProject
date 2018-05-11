@@ -1,0 +1,112 @@
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  min-height: 100px;
+  color: #F4F4F4;
+}
+nav ul {
+  width: 100%; 
+  margin: 0 auto;
+}
+nav li {
+  line-height: 50px;
+  text-align: center;
+  width: 168.2px;
+  font-size: 12pt;
+}
+.dropdown-menu li > a:hover{
+  background-color:rgba(0,0,0,0.5); 
+}
+.dropdown-menu .divider {
+  overflow: hidden;
+  background-color: rgba(255,255,255,0.5);
+}
+.Background{
+  background: url(http://www.sofianmoumene.com/images/1305563386-minimalistic-fog-simple-backgrounds-wallpaper-wallpaper.jpg) 
+  no-repeat center center fixed;
+}
+#Center{
+  background-color:rgba(0,0,0,0.5);
+  color:white;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px; 
+}
+header {
+  padding-bottom: 36px;
+  text-align: center;
+  font-size: 5em;
+  min-height: 100px;
+  color: #F4F4F4;
+}
+.navigationbar{
+
+}
+.navbar{
+  font-size: 14pt;
+  text-align: center;
+  border-radius: 0px;
+  margin-bottom: 20px;
+  background-color: rgba(0,0,0,0.5);
+}
+footer {
+  margin-top: 20px;
+  bottom: 0px;
+  width:100%;
+  text-align: center;
+  min-height: 50px;
+  padding: 20px;
+  background-color: rgba(0,0,0,0.5);
+}
+a:link{
+  color:white;
+}
+a:visited{
+  color:white;
+}
+a.hover{
+  text-decoration: underline;
+}
+a.active{
+  text-decoration: underline;
+}
+
+form input,
+form select,
+form button {
+  color: black;
+}
+a:link{
+  color: white;
+}
+a:visited{
+  color:white;
+}
+a.class1:link {
+   color: black;
+}
+a.class1:visited {
+   color: black;
+}
+a.class1:hover {
+   color: black;
+}
+a.class1:active {
+   color: black;
+}
+#login_dialog{
+  color: black;
+}
+#black{
+  color:black;
+}
+.search{
+  width: 200px;
+}
+.modal-header{
+  color:black;
+}
+form {
+  color: black;
+}

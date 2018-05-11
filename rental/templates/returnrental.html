@@ -1,0 +1,28 @@
+<%inherit file="/homepage/templates/base.htm" />
+
+<%block name="content">
+	<h1> Rental Return</h1>
+	<table id="rental_table" class="table table-condensed">	
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Quantity</th>		
+		</tr>
+	%for item in items:
+		<tr>
+			<td>${item.id}</td>
+			<td>${item.name}</td>
+			<td>${item.price_per_day}</td>				
+			<td>${qty[0]}</td>				
+		</tr>
+	%endfor
+	</table>
+	%if request.user.is_authenticated():
+		<input type="text" id="Fee"class="form-control" style="width: 200px; float: left; margin-right: 10px;" placeholder="Fee">
+		<a href="/rental/index.checkout/" class="btn btn-danger" style="float: left;" >Add Fee</a>
+	    <a href="/rental/rental_cart.returnitem/" class="btn btn-warning" style="float: right;" >Return</a>
+	    <a href="/rental/index/" class="btn btn-success" style="float: right; margin-right: 10px;" >cancel</a>
+    %else:
+    %endif		
+</%block>

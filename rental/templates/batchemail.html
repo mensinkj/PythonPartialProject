@@ -1,0 +1,25 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<h1>Overdue Rentals</h1>
+		<table id="rentals_table">	
+			<tr>
+				<th>ID</th>
+				<th>Item</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Days Late</th>		
+			</tr>
+			%for rentals in all_rentals:
+				<tr>
+					<td>${rentals.id}</td>
+					<td>${rentals.name}</td>
+					<td>${rentals.price_per_day}</td>
+					<td>${rentals.quantity}</td>
+					<td>${rentals.days_late}</td>
+				</tr>			
+			%endfor	
+		</table>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+	<div style="padding-left: 250px; padding-top: 50px;">
+		<form method = "POST">
+			<table>
+				${ form }		
+			</table>
+			<br>
+			<div style="padding-left:45px">
+				<button type="submit" class="btn btn-primary">Submit</button>
+				<a href="/homepage/photographable.delete/${ photographable.object_id }/" class="btn btn-danger">Delete Account</a>
+			</div>
+		</form>
+	</div>
+</%block>	

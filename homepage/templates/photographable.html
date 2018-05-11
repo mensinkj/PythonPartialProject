@@ -1,0 +1,22 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+	<div class="text-left">
+		<a href="/homepage/photographable.create/" class="btn btn-primary">Create New Photographable Thing</a>
+	</div>
+	<br>
+	<table id="pt_table" class = "table table-striped table-bordered">	
+		<tr>
+			<th>ID</th>	
+			<th>Action</th>	
+		</tr>
+		%for photographablething in all_pt:
+			<tr>
+				<td>${photographablething.object_id}</td>
+				<td>
+					<a href="/homepage/photographable.edit/${photographablething.object_id}/" class="btn btn-xs btn-danger">Edit</a> 
+				</td>		
+			</tr>			
+		%endfor	
+	</table>
+</%block>	

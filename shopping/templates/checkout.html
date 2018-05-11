@@ -1,0 +1,18 @@
+<%inherit file="/homepage/templates/base.htm" />
+
+<%block name="content">
+	<h3>Please fill out the following information:</h3>
+	<div style="padding-left: 250px;">
+		<form method = "POST">
+			<table>
+				${ form }		
+			</table>
+			<br>
+			<div style="padding-left:45px">
+				<button type="submit" class="btn btn-primary">Submit</button>
+				<a href="/shopping/index/${ user.id }/" class="btn btn-danger">Cancel</a>
+			</div>
+		</form>
+	</div>
+	<br>
+</%block>

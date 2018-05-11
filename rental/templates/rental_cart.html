@@ -1,0 +1,26 @@
+<%inherit file="/homepage/templates/base_ajax.htm" />
+
+<%block name="content">
+	<table id="rental_table" class="table table-condensed">	
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Quantity</th>
+			<th>Action</th>		
+		</tr>
+	%for item in items:
+		<tr>
+			<td>${item.id}</td>
+			<td>${item.name}</td>				
+			<td>${qty[0]}</td>				
+			<td>
+				<a href="/rental/rental_cart.delete/${user.id}/" class="btn btn-xs btn-danger">Delete</a> 
+			</td>
+		</tr>
+	%endfor
+	</table>
+	%if request.user.is_authenticated():
+          <a href="/rental/index.checkout/" class="btn btn-warning" style="float: right;" >Checkout</a>
+        %else:
+        %endif		
+</%block>	

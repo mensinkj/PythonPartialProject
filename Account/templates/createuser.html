@@ -1,0 +1,17 @@
+<%inherit file="/homepage/templates/base.htm" />
+
+<%block name="content">
+	<div style="padding-left: 250px; padding-top: 50px;">
+		<span id="id_username_message"></span>
+		<form method = "POST">
+			<table>
+				${ form }		
+			</table>
+			<br>
+			<div style="padding-left:45px">
+				<button type="submit" class="btn btn-primary">Submit</button>
+				<a href="/Account/index.delete/${ user.id }/" class="btn btn-danger">Cancel</a>
+			</div>
+		</form>
+	</div>
+</%block>	

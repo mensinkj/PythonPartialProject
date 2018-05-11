@@ -1,0 +1,122 @@
+
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+
+## set up a StaticRenderer object to enable the CSS/JS automatic inclusion magic.
+<%! from django_mako_plus.controller import static_files %>
+<%  static_renderer = static_files.StaticRenderer(self) %>
+
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+  <meta name="author" content="Joshua Mensink">
+  <meta name="description" content="News on colonial events and products">
+  <meta name="keywords" content="colonial, Awesome, Heritage, American, BYU, Gove">
+  <head>
+  <div id="background">
+    
+    <title>Colonial Heritage Foundation</title>
+    
+    ## add any site-wide scripts or CSS here; for example, jquery:
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="icon" type="image/png" href="/static/homepage/media/icon.png">
+    <script src="${ STATIC_URL }homepage/media/jqueryforms.js"></script>
+    <script src="${STATIC_URL }homepage/media/jquery.loadmodal.js"></script>
+
+    
+    ## render the css with the same name as this page
+    ${ static_renderer.get_template_css(request, context)  }
+  
+  </head>
+  <body>
+    <div class="Background">
+      <header>
+        <div class="navigationbar">
+          %if request.user.is_authenticated():
+            <nav class="navbar navbar-inverse" style="padding-right: 80px;">
+              <ul class="nav navbar-nav">
+                <li><a href="/login.logout_view">Logout</a></li>
+                <li class="dropdown">
+                  <a href=""class="dropdown-toggle" data-toggle="dropdown" role="button">Edit Content<span class="caret"></span></a>
+                  <ul class="dropdown-menu" style="background-color: rgba(0,0,0,0.5);" role="menu">
+                    <li><a href="/homepage/users" style="color: white;">Users</a></li>
+                    <li class="divider" style="color: black;"></li>
+                    <li><a href="/homepage/items" style="color: white;">items</a></li>
+                    <li><a href="/homepage/products" style="color: white;">products</a></li>
+                  </ul>
+                </li>
+                <li class='dropdown'>
+                  <a href=""class="dropdown-toggle" data-toggle="dropdown" role="button">Rentals<span class="caret"></span></a>
+                  <ul class="dropdown-menu" style="background-color: rgba(0,0,0,0.5);" role="menu">
+                    <li><a href="/rental/index.returnrental" style="color: white;">Returns</a></li>
+                    <li class="divider" style="color: black;"></li>
+                    <li><a href="/homepage/index.batch" style="color: white;">Overdue Rentals</a></li>
+                  </ul>
+                </li>
+                <li><input type="text" id="search"class="form-control" style="width: 500px; margin-top: 10px" placeholder="Search"><li>
+                <li style="float: right"><a href="/shopping/index.checkout/" class="btn btn-warning btn-lg navbar-right" style="color: white; margin-top: 2px; margin-bottom:2px;" >Checkout</a></li>
+              </ul>
+            </nav>
+          %else:
+            <nav class="navbar navbar-inverse">
+              <ul class="nav navbar-nav">
+                <li>
+                  <button type-"button" id="show_login_dialog" class="btn btn-warning btn-lg" style="margin-top: 10px;">Login
+                  </button></li>
+                <li><a href="/Account/index.create">Create a new Account</a></li>
+                <input type="text" id="search" class="form-control navbar-right" style="margin-right: 20px; margin-top: 20px; width: 500px;" placeholder="Search">
+              </ul>
+            </nav>
+          %endif
+        </div>
+        <div style="float: left; padding-left: 20px">
+            %if request.user.is_authenticated():
+              <h4><a href="/Account/index.edituser/${ user.id }/">Welcome ${user.get_username()}</a></h4>
+            %else:
+            %endif  
+        </div> 
+        <div>
+          <h1><span style="font-family:Times; font-size:48pt;">Colonial Heritage Foundation</span></h1>
+        </div>
+      </header>
+      <div class="container-fluid">
+        <div id="Left" class="col-md-2" style="padding-top: 0px">
+          <h3 style="padding-top:25px;">
+            <a href="/homepage/index">Home</a><br><br>
+            <a href="/event/index">Events</a><br><br>
+            <a href="/shopping/index">Shop</a><br><br>
+            <a href="/rental/index">Rent</a><br><br>
+            <a href="/homepage/terms">Terms</a><br><br>
+            <a href="/homepage/about">About Us</a><br><br>
+            <a href="/homepage/contact">Contact Us</a>
+          <h3>
+        </div>
+        <div id="Center" class="col-md-8">
+          <%block name="content">
+          </%block>
+        </div>
+      </div>
+    </body>
+    <footer>
+      <div id="Footer">
+        Copyright 2015
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+      </div>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-61450130-1', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+    </footer> 
+  </div>
+</html>
+
+
+    ## render the css with the same name as this page
+    ${ static_renderer.get_template_js(request, context)  }

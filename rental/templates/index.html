@@ -1,0 +1,21 @@
+<%inherit file="/homepage/templates/base.htm" />
+
+<%block name="content">
+	<div style="text-align: center;">
+		%for rentals in rental_items:	
+			<div class ="item_container">
+				<a href="/rental/${ rentals.name }/">
+				<img class="rental_picture" src="${ STATIC_URL }rental/media/product_images/${ rentals.id }.jpg" />
+				<div class="rental_name">${ rentals.name }</div></a>
+				<div class="rental_description">${ rentals.description }</div><br>
+				<div class="rental_price">$${ rentals.price_per_day }</div>
+				
+				<div class="text-bottom" style="bottom: 0px;">
+				Quantity:
+				<input class="control-form qty" id="qty" type="number" method="POST"><br>
+					<br><button data-pid="${ rentals.id }" class="add_button btn btn-warning"> Add to Cart</button>
+				</div>
+			</div>
+		%endfor
+	</div>
+</%block>
